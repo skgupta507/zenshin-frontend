@@ -36,7 +36,7 @@ export default function StreamStatsEpisode({
   useEffect(() => {
     const fetchDetails = () => {
       fetch(
-        `http://localhost:64621/detailsepisode/${encodeURIComponent(magnetURI)}/${encodeURIComponent(episode)}`,
+        `https://zenshin-backend.onrender.com/detailsepisode/${encodeURIComponent(magnetURI)}/${encodeURIComponent(episode)}`,
       )
         .then((response) => response.json())
         .then((data) => setDetails(data))

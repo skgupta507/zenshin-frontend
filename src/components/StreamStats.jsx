@@ -17,7 +17,7 @@ export default function StreamStats({ magnetURI }) {
 
   useEffect(() => {
     const fetchDetails = () => {
-      fetch(`http://localhost:64621/details/${encodeURIComponent(magnetURI)}`)
+      fetch(`https://zenshin-backend.onrender.com/details/${encodeURIComponent(magnetURI)}`)
         .then((response) => response.json())
         .then((data) => setDetails(data))
         .catch((error) =>

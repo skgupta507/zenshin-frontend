@@ -13,15 +13,15 @@
 //     try {
 //       // Step 1: Add the torrent
 //       await axios.get(
-//         `http://localhost:64621/add/${encodeURIComponent(magnetURI)}`,
+//         `https://zenshin-backend.onrender.com/add/${encodeURIComponent(magnetURI)}`,
 //       );
 //       // Step 2: Set the video source for streaming
 //       setVideoSrc(
-//         `http://localhost:64621/stream/${encodeURIComponent(magnetURI)}`,
+//         `https://zenshin-backend.onrender.com/stream/${encodeURIComponent(magnetURI)}`,
 //       );
 //       // Step 3: Set the subtitle source
 //       setSubtitleSrc(
-//         `http://localhost:64621/subtitles/${encodeURIComponent(magnetURI)}`,
+//         `https://zenshin-backend.onrender.com/subtitles/${encodeURIComponent(magnetURI)}`,
 //       );
 //     } catch (error) {
 //       console.error("Error adding the torrent or streaming video", error);

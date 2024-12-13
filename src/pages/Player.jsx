@@ -27,16 +27,16 @@ export default function Player(query) {
     try {
       // Step 1: Add the torrent
       const response = await axios.get(
-        `http://localhost:64621/add/${encodeURIComponent(magnetURI)}`,
+        `https://zenshin-backend.onrender.com/add/${encodeURIComponent(magnetURI)}`,
       );
       console.log(response);
       // Step 2: Set the video source for streaming
       setVideoSrc(
-        `http://localhost:64621/stream/${encodeURIComponent(magnetURI)}`,
+        `https://zenshin-backend.onrender.com/stream/${encodeURIComponent(magnetURI)}`,
       );
       // Step 3: Set the subtitle source
       setSubtitleSrc(
-        `http://localhost:64621/subtitles/${encodeURIComponent(magnetURI)}`,
+        `https://zenshin-backend.onrender.com/subtitles/${encodeURIComponent(magnetURI)}`,
       );
     } catch (error) {
       console.error("Error adding the torrent or streaming video", error);
@@ -59,7 +59,7 @@ export default function Player(query) {
     try {
       console.log("Inside getFiles");
       const response = await axios.get(
-        `http://localhost:64621/metadata/${encodeURIComponent(magnetURI)}`,
+        `https://zenshin-backend.onrender.com/metadata/${encodeURIComponent(magnetURI)}`,
       );
       console.log("magnetURI: " + magnetURI);
 
@@ -86,13 +86,13 @@ export default function Player(query) {
   const handleVlcStream = async () => {
     try {
       await axios.get(
-        `http://localhost:64621/add/${encodeURIComponent(magnetURI)}`,
+        `https://zenshin-backend.onrender.com/add/${encodeURIComponent(magnetURI)}`,
       );
 
       // Send a request to the server to open VLC with the video stream URL
       await axios.get(
-        `http://localhost:64621/stream-to-vlc?url=${encodeURIComponent(
-          `http://localhost:64621/stream/${encodeURIComponent(magnetURI)}`,
+        `https://zenshin-backend.onrender.com/stream-to-vlc?url=${encodeURIComponent(
+          `https://zenshin-backend.onrender.com/stream/${encodeURIComponent(magnetURI)}`,
         )}`,
       );
     } catch (error) {
@@ -112,7 +112,7 @@ export default function Player(query) {
 
   const checkBackendRunning = async () => {
     try {
-      const response = await axios.get("http://localhost:64621/ping");
+      const response = await axios.get("https://zenshin-backend.onrender.com/ping");
       console.log(response);
 
       if (response.status === 200) {
@@ -180,7 +180,7 @@ export default function Player(query) {
 
   const handleStreamBrowser = (eipsode) => {
     setVideoSrc(
-      `http://localhost:64621/streamfile/${encodeURIComponent(magnetURI)}/${encodeURIComponent(eipsode)}`,
+      `https://zenshin-backend.onrender.com/streamfile/${encodeURIComponent(magnetURI)}/${encodeURIComponent(eipsode)}`,
     );
   };
 
@@ -188,8 +188,8 @@ export default function Player(query) {
     try {
       // Send a request to the server to open VLC with the video stream URL
       await axios.get(
-        `http://localhost:64621/stream-to-vlc?url=${encodeURIComponent(
-          `http://localhost:64621/streamfile/${encodeURIComponent(magnetURI)}/${encodeURIComponent(episode)}`,
+        `https://zenshin-backend.onrender.com/stream-to-vlc?url=${encodeURIComponent(
+          `https://zenshin-backend.onrender.com/streamfile/${encodeURIComponent(magnetURI)}/${encodeURIComponent(episode)}`,
         )}`,
       );
     } catch (error) {
@@ -211,11 +211,11 @@ export default function Player(query) {
     try {
       // Send a DELETE request to remove the torrent
       console.log(
-        `http://localhost:64621/deselect/${encodeURIComponent(magnetURI)}/${encodeURIComponent(episode)}`,
+        `https://zenshin-backend.onrender.com/deselect/${encodeURIComponent(magnetURI)}/${encodeURIComponent(episode)}`,
       );
 
       await axios.get(
-        `http://localhost:64621/deselect/${encodeURIComponent(magnetURI)}/${encodeURIComponent(episode)}`,
+        `https://zenshin-backend.onrender.com/deselect/${encodeURIComponent(magnetURI)}/${encodeURIComponent(episode)}`,
       );
 
       // Clear the video and subtitle sources
@@ -263,7 +263,7 @@ export default function Player(query) {
     try {
       // Send a DELETE request to remove the torrent
       await axios.delete(
-        `http://localhost:64621/remove/${encodeURIComponent(magnetURI)}`,
+        `https://zenshin-backend.onrender.com/remove/${encodeURIComponent(magnetURI)}`,
       );
 
       // Clear the video and subtitle sources
